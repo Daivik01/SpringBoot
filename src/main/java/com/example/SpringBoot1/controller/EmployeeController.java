@@ -32,8 +32,8 @@ public class EmployeeController {
     }
 
     @PutMapping(value = "{id}")
-    public Employee editData(@PathVariable("id") Long id) {
-        return employeeServices.updateUser(id);
+    public Employee editData(@PathVariable("id") Long id,@RequestBody Employee employee) {
+        return employeeServices.updateUser(id,employee);
     }
 
     @DeleteMapping("{id}")

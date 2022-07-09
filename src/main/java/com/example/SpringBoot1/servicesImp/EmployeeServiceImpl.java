@@ -39,12 +39,13 @@ public class EmployeeServiceImpl implements EmployeeServices {
     //Truth of search
     @Transactional
     @Override
-    public Employee updateUser(long id) {
+    public Employee updateUser(long id,Employee employee) {
         Employee existEmployee = repo.findById(id).orElseThrow(() -> new ResponseNotFoundException("Employee", "id", id));
         existEmployee.setId(id);
-        existEmployee.setName(existEmployee.getName());
-        existEmployee.setCity(existEmployee.getCity());
-        existEmployee.setEmail(existEmployee.getEmail());
+        existEmployee.setName(employee.getName());
+        existEmployee.setCity(employee.getCity());
+        existEmployee.setEmail(employee.getEmail());
+        System.out.println();
         return repo.save(existEmployee);
     }
 
