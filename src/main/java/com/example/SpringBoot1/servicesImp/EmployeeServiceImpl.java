@@ -42,6 +42,7 @@ public class EmployeeServiceImpl implements EmployeeServices {
     public Employee updateUser(long id,Employee employee) {
         Employee existEmployee = repo.findById(id).orElseThrow(() -> new ResponseNotFoundException("Employee", "id", id));
         existEmployee.setId(id);
+        //This is for setting name.
         existEmployee.setName(employee.getName());
         existEmployee.setCity(employee.getCity());
         existEmployee.setEmail(employee.getEmail());
